@@ -1,6 +1,6 @@
 ### This code is for trimming the raw PE reads from Illumina sequencing of L. maximus skin and retina. Reads from skin and retinal tissues were trimmed in two seperate scripts.
 
-```
+```bash
 #Move into the appropriate folder
 cd /dscrhome/les84/Trimming
 
