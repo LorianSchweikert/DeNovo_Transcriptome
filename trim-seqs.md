@@ -1,11 +1,10 @@
 ### This code is for trimming the raw PE reads from Illumina sequencing of L. maximus skin and retina. Reads from skin and retinal tissues were trimmed in two seperate scripts.
 
+```
 #Move into the appropriate folder
-
 cd /dscrhome/les84/Trimming
 
 #Begin trimming reads from L. maximus skin
-
   ../PROGRAMS/trimmomatic \
   PE \
   -threads 4 \
@@ -22,6 +21,7 @@ cd /dscrhome/les84/Trimming
   SLIDINGWINDOW:4:20 \
   AVGQUAL:20 \
   MINLEN:50
+```
 
 #Then trim reads from L. maximus skin
    ../PROGRAMS/trimmomatic \
