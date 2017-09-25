@@ -17,7 +17,6 @@ zcat ../Trimming/Retina_RTrimmed_Paired.fastq.gz ../Trimming/Skin_RTrimmed_Paire
    Trinity \
    --seqType fq \
    --max_memory 192G \
-   
    --left forward.fastq.gz \
    --right reverse.fastq.gz \
    --CPU 16
@@ -33,7 +32,7 @@ Description of the parameters:
    --CPU 16 :: 16 CPUs (threads) are used
 ```
    
-This next chuck of code is for screening the transcriptome for vector contamination. This is required before submission to NCBI. Remove any vector contaminants from transcriptome, then save as Trinity-VecCon.fasta
+This next chucnk of code is for screening the transcriptome for vector contamination. This is required before submission to NCBI. Remove any vector contaminants from transcriptome, then save as Trinity-VecCon.fasta
 
 ```bash
 # Make Folder for Univec Blasting
