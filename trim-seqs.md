@@ -40,7 +40,9 @@ cd /dscrhome/les84/Trimming
    SLIDINGWINDOW:4:20 \
    AVGQUAL:20 \
    MINLEN:50
-   
+```
+I used ```cd``` to change folders.
+
 ### Description of the parameters:
 - PE :: the input data are paired-end reads
 - -threads 4 :: four CPUs (threads) are used
