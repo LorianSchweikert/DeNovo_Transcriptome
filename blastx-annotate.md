@@ -36,7 +36,15 @@ e=$(( $SLURM_ARRAY_TASK_ID * 56 ))s=$(( $e - 55 ))
 # Begin blasting sequences
 for ((f=$s;f<=$e;f++))do
 file=$(sed -n "$f"p ../Missing.list | sed "s/.xml/.fasta/")file1=$(sed -n "$f"p ../Missing.list)
-echo "Blasting sequence ${f}"blastx \   -query ~/Annotation/Seqs/$file \   -db /work/frr6/BLASTN/nr \   -outfmt 5 \   -out ${file1} \   -evalue 0.001 \   -num_threads 2 \   -max_target_seqs 10echo "Finished sequence $f"done
+echo "Blasting sequence ${f}"blastx \  
+-query ~/Annotation/Seqs/$file \   
+-db /work/frr6/BLASTN/nr \   
+-outfmt 5 \   
+-out ${file1} \   
+-evalue 0.001 \   
+-num_threads 2 \   
+-max_target_seqs 10
+echo "Finished sequence $f"done
 ``` 
 Description of  the parameters:
 - -query :: input file name; portion of assembly
@@ -47,7 +55,7 @@ Description of  the parameters:
 - -num_threads 2 :: 2 CPUs (threads) are used
 - -max_target_seqs 10 :: only the first 10 hit results will be included in the output
 
-Repeating blastx of contigs for which jobs failed. 
+Repeat blastx of contigs for which jobs failed. 
 ```bash
 # First, identify which jobs need to be run again
 for i in {1..237396} \
