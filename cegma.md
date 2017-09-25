@@ -1,4 +1,4 @@
-###This code is for estimating the completeness of the assembled transcriptome. Cegma and be run before and after transcriptome filtering for comparison.
+### This code is for estimating the completeness of the assembled transcriptome. Cegma and be run before and after transcriptome filtering for comparison.
 ```bash
 #Move into the appropriate folder
 cd /dscrhome/les84/CEGMA
