@@ -22,7 +22,7 @@ cd /dscrhome/les84/Trimming
   AVGQUAL:20 \
   MINLEN:50
 ```
-
+```bash
 #Then trim reads from L. maximus skin
    ../PROGRAMS/trimmomatic \
    PE \
@@ -42,15 +42,14 @@ cd /dscrhome/les84/Trimming
    MINLEN:50
    
 ### Description of the parameters:
-PE :: the input data are paired-end reads
--threads 4 :: four CPUs (threads) are used
--phred33 :: score value of data required for trimming step
-input name of the forward reads fileinput name of the reverse reads file
+- PE :: the input data are paired-end reads
+- -threads 4 :: four CPUs (threads) are used
+- -phred33 :: score value of data required for trimming step
+- input name of the forward reads fileinput name of the reverse reads file
 output name of the trimmed and paired forward file
 output name of the trimmed and unpaired forward file
 output name of the trimmed and reverse forward file
 output name of the trimmed and reverse forward file
-
 ILLUMINACLIP:file:2:30:7 :: fasta file of adapter sequences to trim
 2 :: seedMismatches: specifies the maximum mismatch count which will still allow a full match to be performed
 30 :: palindromeClipThreshold: specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment
