@@ -1,5 +1,6 @@
-This code is for assembling the trimmed sequence reads from both tissues into a de novo assembly. 
+### This code is for assembling the trimmed sequence reads from both tissues into a de novo assembly. 
 
+```bash
 # Move into the appropriate folder
 cd /dscrhome/les84/Assembly
 
@@ -30,9 +31,11 @@ Description of the parameters:
    input name of the forward concatenated file
    input name of the reverse concatenated file
    --CPU 16 :: 16 CPUs (threads) are used
+```
    
-  This next chuck of code is for screening the transcriptome for vector contamination. This is required before submission to NCBI. Remove any vector contaminants from transcriptome, then save as Trinity-VecCon.fasta
-  
+This next chuck of code is for screening the transcriptome for vector contamination. This is required before submission to NCBI. Remove any vector contaminants from transcriptome, then save as Trinity-VecCon.fasta
+
+```bash
 # Make Folder for Univec Blasting
 mkdir /dscr/les84/UNIVEC
 cd UNIVEC
@@ -54,3 +57,4 @@ wget ftp://ftp.ncbi.nlm.nih.gov/pub/UniVec/UniVec_Core
    -num_threads 4 \
    -outfmt 6 \
    -out vector-screen.tsv
+```
