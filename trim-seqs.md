@@ -1,9 +1,9 @@
 This code is for trimming the raw PE reads from Illumina sequencing of L. maximus skin and retina. Reads from skin and retinal tissues were trimmed in two seperate scripts.
 
-# Move into the appropriate folder
+### Move into the appropriate folder
 cd /dscrhome/les84/Trimming
 
-# Begin trimming reads from L. maximus skin
+####Begin trimming reads from L. maximus skin
   ../PROGRAMS/trimmomatic \
   PE \
   -threads 4 \
@@ -21,7 +21,7 @@ cd /dscrhome/les84/Trimming
   AVGQUAL:20 \
   MINLEN:50
 
-# Then trim reads from L. maximus skin
+#### Then trim reads from L. maximus skin
    ../PROGRAMS/trimmomatic \
    PE \
    -threads 4 \
@@ -48,6 +48,7 @@ output name of the trimmed and paired forward file
 output name of the trimmed and unpaired forward file
 output name of the trimmed and reverse forward file
 output name of the trimmed and reverse forward file
+
 ILLUMINACLIP:file:2:30:7 :: fasta file of adapter sequences to trim
 2 :: seedMismatches: specifies the maximum mismatch count which will still allow a full match to be performed
 30 :: palindromeClipThreshold: specifies how accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment
