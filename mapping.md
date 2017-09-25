@@ -1,4 +1,4 @@
-###This code is for mapping the trimmed sequence reads of L. maximus skin and retina back to the assembled transcriptome. Reads from skin and retinal tissues were mapped in two seperate scripts.
+### This code is for mapping the trimmed sequence reads of L. maximus skin and retina back to the assembled transcriptome. Reads from skin and retinal tissues were mapped in two seperate scripts.
 
 ```bash
 ## Move into the appropriate folder
