@@ -1,7 +1,7 @@
 # DeNovo_Transcriptome
 Lachnolaimus_maximus Transcriptome
 
-This repository contains code for the assembly and annotation of a de novo transcriptome, sequenced from the retina and skin of a hogfish (Lachnolaimus maximus). An outline of the work flow listed below.
+This repository contains code for the assembly and annotation of a de novo transcriptome, sequenced from the retina and skin of a hogfish (Lachnolaimus maximus). An outline of the work flow is listed below.
 
 1. Trim the raw sequencing data
 2. Assemble the de novo transcriptome using TRINITY
