@@ -52,7 +52,7 @@ Description of the parameters:
 - --trinity_mode :: setting to automatically generate the gene_trans_map and use it
 - --prep_reference :: builds target index--output_prefix :: prefix for output files
 
-### This next chuck of code is for filtering your assembly by an expression minimum. A gene minimum expression level of 1 transcript per million was chosen for the current study.The mapping step will output isoforms.matrix and genes.matrix expression files. Use R to filter contig names out into a temporary list file, Contigs_keep.list, for isoforms or genes that meet your expression minimum criterion.
+### This next chuck of code is for filtering the assembly by an expression minimum. A gene minimum expression level of 1 transcript per million was chosen for the current study. The mapping step will output isoforms.matrix and genes.matrix expression files. Use R to filter contig names out into a temporary list file, Contigs_keep.list, for isoforms or genes that meet your expression minimum criterion.
 
 ```bash
 #First, format your assembly file into two lines per sequence using the seqtk tool. The -l0 flag allows an extremely large number of bases to be included on a single line.
