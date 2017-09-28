@@ -23,7 +23,7 @@ cd /dscrhome/les84/Trimming
   MINLEN:50
 ```
 ```bash
-#Then trim reads from L. maximus skin
+#Then trim reads from L. maximus retina
    ../PROGRAMS/trimmomatic \
    PE \
    -threads 4 \
