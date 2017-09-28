@@ -82,3 +82,37 @@ echo "Blasting sequence ${f}"blastx \  
 -max_target_seqs 10
 echo "Finished sequence $f"done
 ```
+### This next chunk of code is for annotating the de novo assembly using IPRscan. The following code was submitted as a SLURM script to the cluster.
+
+```bash
+#Move into the appropriate folder
+cd /dscrhome/les84/IPR_XML
+　
+e=$(( $SLURM_ARRAY_TASK_ID * 500 ))
+s=$(( $e - 499 ))
+　
+for ((f=$s;f<=$e;f++))
+do
+echo "IPRscanning sequence $f" >&2
+mkdir temp_${f}
+/work/frr6/IPRSCAN/interproscan-5.22-61.0/interproscan.sh \
+   -o Combined_out_trinity.Trinity.part-${f}.xml \
+   -f XML \
+   -goterms \
+   -i ../SINGLE_SEQS/Combined_out_trinity.Trinity.part-${f}.fasta \
+   -T temp_${f} \
+   -t n
+rm -rf temp_${f}
+echo "IPRscan of $f finished" >&2
+done
+```
+Description of Parameters
+-o:: output file name (collated results)
+-f:: files to index
+-goterms ::look up corresponding gene annotation
+-i:: input file
+-T:: temporary file folder
+-t:: data type; nucleotide
+```
+Then, BlastX and IPRScan data is uploaded to Blast2GO. Using a pro license, I executed Blast2GO's mapping step, merged GOs, and annotation step.
+
