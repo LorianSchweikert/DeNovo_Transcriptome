@@ -4,7 +4,7 @@
 # Move into the appropriate folder
 cd /dscrhome/les84/Assembly
 
-# Explain path to trinity required library
+# Demonstrate path to trinity required library
 export LD_LIBRARY_PATH=/usr/lib64/:$LD_LIBRARY_PATH
 
 # Concatenate compressed forward trimmed reads from both tissues
@@ -32,7 +32,7 @@ Description of the parameters:
    --CPU 16 :: 16 CPUs (threads) are used
 ```
    
-This next chucnk of code is for screening the transcriptome for vector contamination. This is required before submission to NCBI. Remove any vector contaminants from transcriptome, then save as Trinity-VecCon.fasta
+This next chucnk of code is for screening the transcriptome for vector contamination. This is required before submission to NCBI TSA repository. Remove any vector contaminants from transcriptome, then save as Trinity-VecCon.fasta
 
 ```bash
 # Make Folder for Univec Blasting
