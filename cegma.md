@@ -1,4 +1,5 @@
-### This code is for estimating the completeness of the assembled transcriptome. Cegma and be run before and after transcriptome filtering for comparison.
+### This code is for estimating the completeness of the assembled transcriptome. Cegma should be run before and after transcriptome filtering for comparison.
+
 ```bash
 #Move into the appropriate folder
 cd /dscrhome/les84/CEGMA
@@ -23,3 +24,5 @@ Description of parameters:
 - -v :: option for verbose output
 - -T 4 :: number of threads
 - -g :: input fasta file
+
+Finally, to estimate transcriptome sequencing coverage, which is required for the submission of transcriptome to NCBI TSA, repeat the mapping step and output the summary statistics. This time, map the trimmed reads back to the final filtered assembly. The total number of bases mapped to the filtered assembly divided by the total number of bases in the assembly equals the transcriptome coverage.
