@@ -107,12 +107,12 @@ echo "IPRscan of $f finished" >&2
 done
 ```
 Description of Parameters
--o:: output file name (collated results)
--f:: files to index
--goterms ::look up corresponding gene annotation
--i:: input file
--T:: temporary file folder
--t:: data type; nucleotide
+- -o:: output file name (collated results)
+- -f:: files to index
+- -goterms ::look up corresponding gene annotation
+- -i:: input file
+- -T:: temporary file folder
+- -t:: data type; nucleotide
 ```
 Then, BlastX and IPRScan data is uploaded to Blast2GO. Using a pro license, I executed Blast2GO's mapping step, merged GOs, and annotation step.
 
