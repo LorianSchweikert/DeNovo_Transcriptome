@@ -1,13 +1,17 @@
 ### This code is for mapping the trimmed sequence reads of L. maximus skin and retina back to the assembled transcriptome. Reads from skin and retinal tissues were mapped in two seperate scripts.
 
 ```bash
-## Move into the appropriate folder
+##To begin mapping, you need to use Bowtie2 to build an index of files (with the same base name) that the mapping script can draw from.
+
+/dcsrhome/les84/bin/Bowtie2-build ~/Assembly/trinity_out_dir/Trinity.fasta Trinity_assembly
+
+## Move into the appropriate folder to begin mapping
 cd /dscrhome/les84/Mapping/rsem
 
 ## Make folder for skin results
 mkdir Skin_rsem 
 
- Trinityv2.3.2/util/align_and_estimate_abundance.pl \
+ ~/PROGRAMS/Trinityv2.3.2/util/align_and_estimate_abundance.pl \
  --transcripts ~/Assembly/trinity_out_dir/Trinity.fasta \
  --seqType fq \--left /dscrhome/les84/Trimming/Skin_FTrimmed_Paired.fastq.gz \
  --right /dscrhome/les84/Trimming/Skin_RTrimmed_Paired.fastq.gz \
@@ -21,7 +25,7 @@ mkdir Skin_rsem
 ## Make folder for retina results
 mkdir Retina_rsem
 
-/dscrhome/frr6/PROGRAMS/Trinityv2.3.2/util/align_and_estimate_abundance.pl \
+~/PROGRAMS/Trinityv2.3.2/util/align_and_estimate_abundance.pl \
 --transcripts ~/Assembly/trinity_out_dir/Trinity.fasta \
 --seqType fq \
 --left /dscrhome/les84/Trimming/Retina_FTrimmed_Paired.fastq.gz \
@@ -48,14 +52,22 @@ Description of the parameters:
 - --trinity_mode :: setting to automatically generate the gene_trans_map and use it
 - --prep_reference :: builds target index--output_prefix :: prefix for output files
 
-This next chuck of code is for filtering by expression level. A contig minimum expression level of 1 transcript per million was chosen for the current study.
+### This next chuck of code is for filtering your assembly by an expression minimum. A gene minimum expression level of 1 transcript per million was chosen for the current study.The mapping step will output isoforms.matrix and genes.matrix expression files. Use R to filter contig names out into a temporary list file, Contigs_keep.list, for isoforms or genes that meet your expression minimum criterion.
 
 ```bash
-##Run a filtering program built into trinity
-/dscrhome/frr6/PROGRAMS/Trinityv2.3.2/util/filter_low_expr_transcripts.pl 
---matrix isoforms.counts.matrix
---t ~/Assembly/trinity_out_dir/Trinity-VecCon.fasta
---min_expr_any 1 --trinity_mode > Trinity-VecCon-TPM1.fasta
+#First, format your assembly file into two lines per sequence using the seqtk tool. The -l0 flag allows an extremely large number of bases to be included on a single line.
+
+seqtk seq -l0 Trinity-VecCon.fasta > Two_Line.fasta
+
+#Next, filter this two line version of the assembly to only include the contigs you wish to keep 
+
+c=1
+while read line
+do
+grep -A1 "$line " Two_Line.fasta
+>> Trinity-VecCon-GeneTPM1.fasta
+echo "finished $c"
+c=$(( $c + 1 ))
+done < ~/Contigs_keep.list
 ```
 
-Alternatively a list of contigs to be kept can be filtered in R. Seqtk can be used to put assembly in 2-line format and desired contigs can be filtered out.
