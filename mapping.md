@@ -1,9 +1,6 @@
 ### This code is for mapping the trimmed sequence reads of L. maximus skin and retina back to the assembled transcriptome. Reads from skin and retinal tissues were mapped in two seperate scripts.
 
 ```bash
-##To begin mapping, you need to use Bowtie2 to build an index of files (with the same base name) that the mapping script can draw from.
-
-/dcsrhome/les84/bin/Bowtie2-build ~/Assembly/trinity_out_dir/Trinity.fasta Trinity_assembly
 
 ## Move into the appropriate folder to begin mapping
 cd /dscrhome/les84/Mapping/rsem
